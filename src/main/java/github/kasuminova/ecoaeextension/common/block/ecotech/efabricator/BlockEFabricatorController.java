@@ -83,15 +83,6 @@ public class BlockEFabricatorController extends BlockController {
                 }
             }
 
-            UUID ownerUUID = ctrl.getOwner();
-            Item dropped = getItemDropped(state, rand, damageDropped(state));
-            ItemStack stackCtrl = new ItemStack(dropped, 1);
-            if (ownerUUID != null) {
-                NBTTagCompound tag = new NBTTagCompound();
-                tag.setString("owner", ownerUUID.toString());
-                stackCtrl.setTagCompound(tag);
-            }
-            spawnAsEntity(worldIn, pos, stackCtrl);
         }
 
         worldIn.removeTileEntity(pos);
